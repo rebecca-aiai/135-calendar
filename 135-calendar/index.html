@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-3-5 FOCUS Calendar</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <style>
+        :root {
+            --brand:        #77c9d2;   /* teal — primary */
+            --brand-dark:   #4fb3be;   /* teal darker for hover */
+            --brand-light:  #eaf8fa;   /* teal tint background */
+            --coral:        #d28077;   /* coral — delete / alert */
+            --coral-light:  #fdf0ee;
+            --mint:         #77d2ae;   /* mint — hover accent */
+            --lavender:     #8077d2;   /* lavender — secondary */
+            --pink:         #d277c9;   /* pink — decorative */
+            --surface:      #f4fbfc;   /* near-white teal tint */
+            --card:         #ffffff;
+            --border:       #d6eff2;   /* soft teal border */
+            --text:         #1e3438;   /* deep teal-gray */
+            --muted:        #7aa4a8;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--surface);
+            color: var(--text);
+            margin: 0;
+        }
+
+        /* ── LOGIN SCREEN ── */
+        #loginScreen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #b8e8ed 0%, #c9b8ed 35%, #edb8e8 65%, #b8edda 100%);
+        }
+
+        .login-card {
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.9);
+            border-radius: 28px;
+            padding: 48px 40px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(119,201,210,0.18), 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .login-card h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -1.5px;
+            margin: 0 0 6px;
+        }
+
+        .login-card h1 span {
+            background: linear-gradient(135deg, var(--brand), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 0 0 32px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 13px 16px;
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: 'Open Sans', sans-serif;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            margin-bottom: 10px;
+        }
+
+        .login-input::placeholder { color: #b0cdd0; }
+        .login-input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(119,201,210,0.18);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, var(--brand), var(--lavender));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        .login-btn:hover { opacity: 0.9; }
+        .login-btn:active { transform: scale(0.98); }
+
+        .login-switch {
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .login-switch a {
+            color: var(--lavender);
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .login-error {
+            color: var(--coral);
+            font-size: 0.85rem;
+            margin-top: 8px;
+            min-height: 20px;
+        }
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .remember-row label {
+            color: var(--muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .remember-row input {
+            accent-color: var(--brand);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        /* ── APP LAYOUT ── */
+        #appScreen { display: none; }
+
+        .app-layout {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            width: 256px;
+            background: var(--card);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .sidebar-top {
+            padding: 24px 20px 18px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(160deg, var(--brand-light) 0%, #fff 100%);
+        }
+
+        .logo {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0 0 5px;
+            background: linear-gradient(135deg, var(--brand-dark), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .user-badge {
+            font-size: 0.8rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .user-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--mint);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(119,210,174,0.3);
+        }
+
+        .sidebar-section {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 10px;
+        }
+
+        .template-btn {
+            width: 100%;
+            padding: 11px 16px;
+            background: linear-gradient(135deg, var(--brand), var(--mint));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.88rem;
+            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            text-align: left;
+            letter-spacing: 0.1px;
+        }
+
+        .template-btn:hover { opacity: 0.88; }
+        .template-btn:active { transform: scale(0.98); }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .toggle-label {
+            font-size: 0.84rem;
+            color: var(--text);
+        }
+
+        /* pill toggle */
+        .pill-toggle {
+            position: relative;
+            width: 36px;
+            height: 20px;
+        }
+
+        .pill-toggle input { opacity: 0; width: 0; height: 0; }
+
+        .pill-track {
+            position: absolute;
+            inset: 0;
+            background: var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .pill-track::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        .pill-toggle input:checked + .pill-track { background: var(--brand); }
+        .pill-toggle input:checked + .pill-track::after { transform: translateX(16px); }
+
+        /* color legend */
+        .color-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 0.82rem;
+            color: var(--text);
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .logout-btn {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            color: var(--muted);
+            font-size: 0.84rem;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: var(--coral-light);
+            border-color: var(--coral);
+            color: var(--coral);
+        }
+
+        /* ── CALENDAR AREA ── */
+        .cal-wrapper {
+            flex: 1;
+            padding: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: var(--surface);
+        }
+
+        #calendar {
+            background: var(--card);
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            padding: 16px;
+            flex: 1;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(119,201,210,0.08);
+        }
+
+        /* FullCalendar overrides */
+        .fc { height: 100%; font-family: 'Open Sans', sans-serif; }
+        .fc-toolbar-title { font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 1.15rem !important; color: var(--text); }
+        .fc-button { font-family: 'Open Sans', sans-serif !important; font-size: 0.8rem !important; font-weight: 600 !important; border-radius: 8px !important; }
+        .fc-button-primary { background: var(--brand) !important; border-color: var(--brand) !important; color: #fff !important; }
+        .fc-button-primary:hover { background: var(--brand-dark) !important; border-color: var(--brand-dark) !important; }
+        .fc-button-active { background: var(--lavender) !important; border-color: var(--lavender) !important; }
+        .fc-event { cursor: pointer; border-radius: 7px !important; border: none !important; font-size: 0.78rem !important; font-weight: 600 !important; transition: filter 0.15s; }
+        .fc-event:hover { filter: brightness(1.07) saturate(1.1); }
+        .fc-timegrid-event { box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important; }
+        .fc-timegrid-event-harness { min-width: 0; }
+        .fc-timegrid-event-harness.fc-adjacent-full {
+            left: 0% !important;
+            right: 0% !important;
+            margin-right: 2px !important;
+        }
+        .fc-day-today { background: rgba(119,201,210,0.07) !important; }
+        .fc-day-today .fc-col-header-cell-cushion { color: var(--brand-dark) !important; font-weight: 700; }
+        .fc-col-header-cell { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+        .fc-scrollgrid { border-color: var(--border) !important; }
+        .fc-scrollgrid td, .fc-scrollgrid th { border-color: var(--border) !important; }
+        .fc-timegrid-slot-label { font-size: 0.75rem; color: var(--muted); }
+        .fc-now-indicator-line { border-color: var(--coral) !important; }
+        .fc-now-indicator-arrow { border-top-color: var(--coral) !important; border-bottom-color: var(--coral) !important; }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(30,52,56,0.35);
+            backdrop-filter: blur(6px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open { display: flex; }
+
+        .modal-card {
+            background: var(--card);
+            border-radius: 22px;
+            padding: 28px;
+            width: 420px;
+            box-shadow: 0 24px 64px rgba(30,52,56,0.16), 0 0 0 1px var(--border);
+            animation: modalIn 0.22s cubic-bezier(0.34,1.56,0.64,1);
+        }
+
+        @keyframes modalIn {
+            from { transform: scale(0.9) translateY(10px); opacity: 0; }
+            to   { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .modal-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 20px;
+            color: var(--text);
+        }
+
+        .field-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: var(--surface);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .field-input:focus {
+            border-color: var(--brand);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(119,201,210,0.15);
+        }
+
+        .field-select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: var(--surface);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237aa4a8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+        .field-select:focus { border-color: var(--brand); }
+
+        /* Color swatches */
+        .color-swatches {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+        }
+
+        .swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2.5px solid transparent;
+            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+            flex-shrink: 0;
+        }
+
+        .swatch:hover { transform: scale(1.18); box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
+        .swatch.selected {
+            border-color: var(--text);
+            transform: scale(1.12);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+        }
+
+        .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .btn-cancel {
+            flex: 1;
+            padding: 12px;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-cancel:hover {
+            background: var(--coral-light);
+            border-color: var(--coral);
+            color: var(--coral);
+        }
+
+        .btn-save {
+            flex: 2;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--brand), var(--lavender));
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: opacity 0.15s, transform 0.1s;
+        }
+
+        .btn-save:hover { opacity: 0.88; }
+        .btn-save:active { transform: scale(0.98); }
+
+        .btn-delete {
+            padding: 12px 15px;
+            background: var(--coral-light);
+            border: 1.5px solid #e8b5b0;
+            border-radius: 10px;
+            color: var(--coral);
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-delete:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
+
+        .field-row { margin-bottom: 14px; }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--text);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-size: 0.84rem;
+            font-weight: 500;
+            z-index: 9999;
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+            pointer-events: none;
+            border: 1px solid rgba(119,201,210,0.25);
+        }
+
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        #lassoBox {
+            position: absolute;
+            border: 2px dashed var(--brand);
+            background: rgba(119,201,210,0.12);
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 800;
+            display: none;
+        }
+        .fc-event.lasso-selected {
+            outline: 3px solid var(--text) !important;
+            outline-offset: 1px;
+            filter: brightness(1.1);
+        }
+        #lassoDeleteBar {
+            display: none;
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            z-index: 9998;
+            gap: 14px;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+        #lassoDeleteBar.show { display: flex; }
+        #lassoDeleteBar button {
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .lasso-del-btn { background: var(--coral); color: #fff; }
+        .lasso-cancel-btn { background: rgba(255,255,255,0.15); color: #fff; }
+
+        /* ── DATE PICKER MODAL ── */
+        #templateModal .modal-card { width: 340px; }
+        .date-pick-input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: var(--surface);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .date-pick-input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(119,201,210,0.15);
+            background: #fff;
+        }
+        .date-shortcuts {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .date-shortcut {
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .date-shortcut:hover {
+            background: var(--brand-light);
+            border-color: var(--brand);
+            color: var(--brand-dark);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════ LOGIN SCREEN ══════════════════ -->
+<div id="loginScreen">
+    <div class="login-card">
+        <h1><span>1-3-5</span> FOCUS</h1>
+        <p>專注力日曆 · 每日優先事項</p>
+        <div id="storageWarning" style="display:none;margin:-16px 0 20px;padding:9px 14px;background:rgba(210,128,119,0.12);border:1px solid rgba(210,128,119,0.3);border-radius:10px;font-size:0.78rem;color:#b05a50;line-height:1.5;">
+            ⚠️ 預覽模式：資料僅保留於本次工作階段。<br>下載後在本機開啟即可永久儲存。
+        </div>
+
+        <div id="loginForm">
+            <input class="login-input" type="text" id="loginUsername" placeholder="使用者名稱" autocomplete="username">
+            <input class="login-input" type="password" id="loginPassword" placeholder="密碼" autocomplete="current-password">
+            <div class="remember-row">
+                <input type="checkbox" id="rememberMe" checked>
+                <label for="rememberMe">記住我（自動登入）</label>
+            </div>
+            <button class="login-btn" onclick="handleLogin()">登入</button>
+            <div class="login-error" id="loginError"></div>
+            <div class="login-switch">還沒有帳號？<a onclick="showRegister()">立即建立</a></div>
+        </div>
+
+        <div id="registerForm" style="display:none">
+            <input class="login-input" type="text" id="regUsername" placeholder="使用者名稱（至少3字）" autocomplete="username">
+            <input class="login-input" type="password" id="regPassword" placeholder="設定密碼（至少6字）" autocomplete="new-password">
+            <input class="login-input" type="password" id="regPassword2" placeholder="再次輸入密碼" autocomplete="new-password">
+            <button class="login-btn" onclick="handleRegister()">建立帳號</button>
+            <div class="login-error" id="regError"></div>
+            <div class="login-switch">已有帳號？<a onclick="showLogin()">回到登入</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════ APP ══════════════════ -->
+<div id="appScreen">
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="logo">1-3-5 FOCUS</div>
+            <div class="user-badge"><span class="user-dot"></span><span id="currentUserLabel">使用者</span></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-label">快速操作</div>
+            <button class="template-btn" onclick="openTemplateModal()">✨ 套用今日 1-3-5 範本</button>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-label">顯示設定</div>
+            <div class="toggle-row">
+                <span class="toggle-label">隱藏週休二日</span>
+                <label class="pill-toggle">
+                    <input type="checkbox" id="hideWeekend" onchange="toggleWeekend(this)">
+                    <span class="pill-track"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-label">顏色標籤說明</div>
+            <div class="color-legend" id="colorLegend"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-label">快捷鍵</div>
+            <div style="font-size:0.78rem;color:var(--muted);line-height:1.8;">
+                點擊空白處 → 新增任務<br>
+                點擊色塊 → 編輯/刪除<br>
+                拖曳色塊 → 移動時間<br>
+                拖曳邊緣 → 調整長度<br>
+                空白拖曳框選 → 多選刪除<br>
+                Ctrl+Z → 還原上一步
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="logout-btn" onclick="handleLogout()">⎋ 登出</button>
+        </div>
+    </div>
+
+    <!-- Calendar -->
+    <div class="cal-wrapper" style="position:relative;">
+        <div id="lassoBox"></div>
+        <div id="calendar"></div>
+    </div>
+    <div id="lassoDeleteBar">
+        <span id="lassoCount">0 個已選取</span>
+        <button class="lasso-del-btn" onclick="deleteSelected()">🗑 刪除選取</button>
+        <button class="lasso-cancel-btn" onclick="clearSelection()">取消</button>
+    </div>
+</div>
+</div>
+
+<!-- ══════════════════ EVENT MODAL ══════════════════ -->
+<div class="modal-overlay" id="eventModal">
+    <div class="modal-card">
+        <div class="modal-title" id="modalTitleText">新增任務</div>
+
+        <div class="field-row">
+            <label class="field-label">任務標題</label>
+            <input type="text" class="field-input" id="taskTitle" placeholder="想要完成什麼？">
+        </div>
+
+        <div class="field-row">
+            <label class="field-label">顏色分類</label>
+            <div class="color-swatches" id="colorSwatches"></div>
+        </div>
+
+        <div class="modal-grid" style="margin-bottom:0">
+            <div class="field-row">
+                <label class="field-label">重複設定</label>
+                <select class="field-select" id="taskRecur">
+                    <option value="">無循環</option>
+                    <option value="daily">每天</option>
+                    <option value="weekdays">每週一至週五</option>
+                    <option value="weekly">每週（同一天）</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-delete" id="btnDelete" onclick="deleteCurrentEvent()" style="display:none">🗑 刪除</button>
+            <button class="btn-cancel" onclick="closeModal()">取消</button>
+            <button class="btn-save" onclick="saveEvent()">儲存</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════
+//  CONSTANTS & COLORS
+// ════════════════════════════════════════════
+const COLOR_OPTIONS = [
+    { hex: '#de9089', label: '大任務' },
+    { hex: '#debb89', label: '中任務' },
+    { hex: '#ded889', label: '小任務' },
+    { hex: '#89d4bc', label: '會議' },
+    { hex: '#89d0de', label: '雜事' },
+    { hex: '#b5a8e0', label: '其他' },
+];
+
+// ════════════════════════════════════════════
+//  STORAGE — graceful fallback if localStorage blocked (e.g. iframe preview)
+// ════════════════════════════════════════════
+const _memStore = {};
+const store = (() => {
+    try {
+        localStorage.setItem('__test__', '1');
+        localStorage.removeItem('__test__');
+        return {
+            get: k => localStorage.getItem(k),
+            set: (k, v) => localStorage.setItem(k, v),
+            remove: k => localStorage.removeItem(k),
+            persistent: true
+        };
+    } catch(e) {
+        return {
+            get: k => _memStore[k] ?? null,
+            set: (k, v) => { _memStore[k] = v; },
+            remove: k => { delete _memStore[k]; },
+            persistent: false
+        };
+    }
+})();
+
+// ════════════════════════════════════════════
+//  AUTH UTILITIES
+// ════════════════════════════════════════════
+
+function simpleHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const chr = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + chr;
+        hash |= 0;
+    }
+    return hash.toString(36);
+}
+
+function getUsers() {
+    return JSON.parse(store.get('135_users') || '{}');
+}
+
+function saveUsers(users) {
+    store.set('135_users', JSON.stringify(users));
+}
+
+function getUserEventsKey(username) {
+    return '135_events_' + username;
+}
+
+function loadUserEvents(username) {
+    return JSON.parse(store.get(getUserEventsKey(username)) || '[]');
+}
+
+function saveUserEvents(username, events) {
+    store.set(getUserEventsKey(username), JSON.stringify(events));
+}
+
+// ════════════════════════════════════════════
+//  LOGIN / REGISTER / LOGOUT
+// ════════════════════════════════════════════
+let currentUser = null;
+
+function showRegister() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+}
+
+function showLogin() {
+    document.getElementById('registerForm').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+}
+
+function handleLogin() {
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    const remember = document.getElementById('rememberMe').checked;
+    const errEl = document.getElementById('loginError');
+
+    const users = getUsers();
+
+    if (!username || !password) {
+        errEl.textContent = '請輸入帳號與密碼。';
+        return;
+    }
+
+    if (!users[username]) {
+        errEl.textContent = '找不到此使用者。';
+        return;
+    }
+
+    if (users[username].hash !== simpleHash(password)) {
+        errEl.textContent = '密碼不正確。';
+        return;
+    }
+
+    errEl.textContent = '';
+
+    if (remember) {
+        store.set('135_autologin', username);
+    } else {
+        store.remove('135_autologin');
+    }
+
+    enterApp(username);
+}
+
+function handleRegister() {
+    const username = document.getElementById('regUsername').value.trim();
+    const pw1 = document.getElementById('regPassword').value;
+    const pw2 = document.getElementById('regPassword2').value;
+    const errEl = document.getElementById('regError');
+
+    if (username.length < 3) { errEl.textContent = '使用者名稱至少需要 3 個字。'; return; }
+    if (pw1.length < 6) { errEl.textContent = '密碼至少需要 6 個字元。'; return; }
+    if (pw1 !== pw2) { errEl.textContent = '兩次密碼輸入不一致。'; return; }
+
+    const users = getUsers();
+    if (users[username]) { errEl.textContent = '此使用者名稱已被使用。'; return; }
+
+    users[username] = { hash: simpleHash(pw1), created: Date.now() };
+    saveUsers(users);
+    errEl.textContent = '';
+
+    showToast(`帳號「${username}」建立成功！`);
+    showLogin();
+    document.getElementById('loginUsername').value = username;
+}
+
+function handleLogout() {
+    store.remove('135_autologin');
+    currentUser = null;
+    if (calendar) {
+        calendar.destroy();
+        calendar = null;
+    }
+    document.getElementById('appScreen').style.display = 'none';
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('loginPassword').value = '';
+    document.getElementById('loginError').textContent = '';
+}
+
+function enterApp(username) {
+    currentUser = username;
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('appScreen').style.display = 'block';
+    document.getElementById('currentUserLabel').textContent = username;
+    initCalendar();
+    buildColorLegend();
+}
+
+// ════════════════════════════════════════════
+//  CALENDAR
+// ════════════════════════════════════════════
+let calendar = null;
+let currentEditInfo = null;
+let selectedColor = COLOR_OPTIONS[0].hex;
+
+function initCalendar() {
+    if (calendar) { calendar.destroy(); }
+
+    const calendarEl = document.getElementById('calendar');
+    const savedEvents = loadUserEvents(currentUser);
+
+    calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridWeek',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'timeGridDay,timeGridWeek'
+        },
+        navLinks: true,
+        editable: true,
+        selectable: true,
+        allDaySlot: false,
+        nowIndicator: true,
+        slotMinTime: '07:00:00',
+        slotMaxTime: '23:00:00',
+        height: '100%',
+        // Restore default overlap behavior (shrink side-by-side when truly overlapping).
+        slotEventOverlap: true,
+
+        // After each event renders, check if it's merely adjacent (not overlapping)
+        // and force full width in that case by inspecting the harness left/right offsets.
+        eventDidMount: function(info) {
+            // Hide exdate occurrences
+            const exdates = info.event.extendedProps?.exdates;
+            if (exdates && exdates.length > 0) {
+                const eventDate = info.event.start?.toISOString().split('T')[0];
+                if (exdates.includes(eventDate)) {
+                    info.el.closest('.fc-timegrid-event-harness')?.style?.setProperty('display', 'none', 'important');
+                }
+            }
+        },
+        events: savedEvents.map(e => ({ ...e })),
+
+        select: function(info) {
+            openModal(null, info);
+        },
+
+        eventClick: function(info) {
+            openModal(info.event);
+        },
+
+        // Persist changes after drag/resize
+        eventDrop: function(info) {
+            persistEvents();
+        },
+
+        eventResize: function(info) {
+            persistEvents();
+        }
+    });
+
+    calendar.render();
+
+    initLasso();
+
+    // Fix adjacent-event false-shrink after every render
+    calendar.on('datesSet', fixAdjacentEvents);
+    calendar.on('eventAdd', fixAdjacentEvents);
+    calendar.on('eventChange', fixAdjacentEvents);
+    calendar.on('eventRemove', fixAdjacentEvents);
+    setTimeout(fixAdjacentEvents, 100);
+}
+
+function fixAdjacentEvents() {
+    // FullCalendar sometimes gives "inset" harnesses to events that only TOUCH
+    // (end of one == start of next). Detect these and give them full width.
+    setTimeout(() => {
+        // Collect all rendered harnesses per column (day)
+        const cols = document.querySelectorAll('.fc-timegrid-col');
+        cols.forEach(col => {
+            const harnesses = Array.from(col.querySelectorAll('.fc-timegrid-event-harness'));
+            // Get pixel top+height for each
+            const rects = harnesses.map(h => {
+                const top    = parseFloat(h.style.top)    || 0;
+                const height = parseFloat(h.style.height) || h.offsetHeight;
+                return { el: h, top, bottom: top + height };
+            });
+            harnesses.forEach((h, i) => {
+                const r = rects[i];
+                // Check if ANY other event in this col truly overlaps (not just touches)
+                const trulyOverlaps = rects.some((other, j) => {
+                    if (j === i) return false;
+                    return other.top < r.bottom - 1 && other.bottom > r.top + 1;
+                });
+                if (!trulyOverlaps) {
+                    h.classList.add('fc-adjacent-full');
+                } else {
+                    h.classList.remove('fc-adjacent-full');
+                }
+            });
+        });
+    }, 60);
+}
+
+// ════════════════════════════════════════════
+//  PERSIST EVENTS
+// ════════════════════════════════════════════
+function persistEvents() {
+    if (!currentUser || !calendar) return;
+    const events = calendar.getEvents().map(e => {
+        const ep = e.extendedProps || {};
+        const obj = {
+            id: e.id || generateId(),
+            groupId: e.groupId || undefined,
+            title: e.title,
+            backgroundColor: e.backgroundColor,
+            borderColor: 'transparent',
+        };
+        if (ep.daysOfWeek) {
+            // recurring
+            obj.daysOfWeek = ep.daysOfWeek;
+            obj.startTime = ep.startTime;
+            obj.endTime = ep.endTime;
+            obj.extendedProps = { daysOfWeek: ep.daysOfWeek, startTime: ep.startTime, endTime: ep.endTime, exdates: ep.exdates || [] };
+        } else {
+            obj.start = e.start ? e.start.toISOString() : null;
+            obj.end = e.end ? e.end.toISOString() : null;
+        }
+        return obj;
+    });
+    saveUserEvents(currentUser, events);
+}
+
+function generateId() {
+    return Math.random().toString(36).slice(2, 10);
+}
+
+// ════════════════════════════════════════════
+//  MODAL
+// ════════════════════════════════════════════
+function buildColorSwatches() {
+    const container = document.getElementById('colorSwatches');
+    container.innerHTML = '';
+    COLOR_OPTIONS.forEach(opt => {
+        const sw = document.createElement('div');
+        sw.className = 'swatch' + (opt.hex === selectedColor ? ' selected' : '');
+        sw.style.background = opt.hex;
+        sw.title = opt.label;
+        sw.onclick = () => {
+            selectedColor = opt.hex;
+            buildColorSwatches();
+        };
+        container.appendChild(sw);
+    });
+}
+
+function buildColorLegend() {
+    const container = document.getElementById('colorLegend');
+    container.innerHTML = '';
+    COLOR_OPTIONS.forEach(opt => {
+        const row = document.createElement('div');
+        row.className = 'legend-item';
+        row.innerHTML = `<span class="legend-dot" style="background:${opt.hex}"></span>${opt.label}`;
+        container.appendChild(row);
+    });
+}
+
+function openModal(event = null, selectInfo = null) {
+    currentEditInfo = { event, selectInfo };
+
+    if (event) {
+        document.getElementById('modalTitleText').textContent = '編輯任務';
+        document.getElementById('taskTitle').value = event.title;
+        selectedColor = event.backgroundColor || COLOR_OPTIONS[0].hex;
+        document.getElementById('btnDelete').style.display = 'block';
+    } else {
+        document.getElementById('modalTitleText').textContent = '新增任務';
+        document.getElementById('taskTitle').value = '';
+        selectedColor = COLOR_OPTIONS[0].hex;
+        document.getElementById('btnDelete').style.display = 'none';
+        document.getElementById('taskRecur').value = '';
+    }
+
+    buildColorSwatches();
+    document.getElementById('eventModal').classList.add('open');
+
+    setTimeout(() => document.getElementById('taskTitle').focus(), 50);
+}
+
+function closeModal() {
+    document.getElementById('eventModal').classList.remove('open');
+    currentEditInfo = null;
+}
+
+function saveEvent() {
+    const title = document.getElementById('taskTitle').value.trim() || '未命名任務';
+    const recur = document.getElementById('taskRecur').value;
+
+    if (currentEditInfo.event) {
+        currentEditInfo.event.setProp('title', title);
+        currentEditInfo.event.setProp('backgroundColor', selectedColor);
+        currentEditInfo.event.setProp('borderColor', 'transparent');
+    } else {
+        const recurGroupId = recur ? generateId() : null;
+        const eventData = {
+            id: generateId(),
+            groupId: recurGroupId || undefined,
+            title,
+            start: currentEditInfo.selectInfo.start,
+            end: currentEditInfo.selectInfo.end,
+            backgroundColor: selectedColor,
+            borderColor: 'transparent',
+        };
+
+        if (recur === 'daily') {
+            eventData.daysOfWeek = [0,1,2,3,4,5,6];
+            eventData.startTime = formatTime(currentEditInfo.selectInfo.start);
+            eventData.endTime = formatTime(currentEditInfo.selectInfo.end);
+            eventData.extendedProps = { daysOfWeek: [0,1,2,3,4,5,6], startTime: eventData.startTime, endTime: eventData.endTime };
+            delete eventData.start;
+            delete eventData.end;
+        } else if (recur === 'weekdays') {
+            eventData.daysOfWeek = [1,2,3,4,5];
+            eventData.startTime = formatTime(currentEditInfo.selectInfo.start);
+            eventData.endTime = formatTime(currentEditInfo.selectInfo.end);
+            eventData.extendedProps = { daysOfWeek: [1,2,3,4,5], startTime: eventData.startTime, endTime: eventData.endTime };
+            delete eventData.start;
+            delete eventData.end;
+        } else if (recur === 'weekly') {
+            const day = currentEditInfo.selectInfo.start.getDay();
+            eventData.daysOfWeek = [day];
+            eventData.startTime = formatTime(currentEditInfo.selectInfo.start);
+            eventData.endTime = formatTime(currentEditInfo.selectInfo.end);
+            eventData.extendedProps = { daysOfWeek: [day], startTime: eventData.startTime, endTime: eventData.endTime };
+            delete eventData.start;
+            delete eventData.end;
+        }
+
+        calendar.addEvent(eventData);
+    }
+
+    pushUndo();
+    persistEvents();
+    closeModal();
+    showToast('✅ 已儲存');
+}
+
+// Mini confirm modal for recurring delete choice
+function deleteCurrentEvent() {
+    if (!currentEditInfo?.event) return;
+    const eventToDelete = currentEditInfo.event;
+    const isRecurring = !!(eventToDelete.daysOfWeek || (eventToDelete.extendedProps && eventToDelete.extendedProps.daysOfWeek));
+
+    if (isRecurring) {
+        // Show inline choice inside modal instead of system dialog
+        showDeleteChoice(eventToDelete);
+    } else {
+        closeModal();
+        pushUndo();
+        eventToDelete.remove();
+        persistEvents();
+        showToast('🗑 已刪除');
+    }
+}
+
+function showDeleteChoice(eventToDelete) {
+    // Replace modal actions with choice buttons
+    const actionsEl = document.querySelector('.modal-actions');
+    actionsEl.innerHTML = `
+        <div style="width:100%">
+            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 10px;text-align:center;">這是重複事件，請選擇刪除範圍：</p>
+            <div style="display:flex;gap:8px;">
+                <button onclick="deleteSingleOccurrence()" style="flex:1;padding:11px 8px;background:#FEF2F2;border:1.5px solid #FECACA;border-radius:10px;color:#ef4444;font-size:0.82rem;font-weight:600;font-family:'Open Sans',sans-serif;cursor:pointer;">
+                    僅此一次
+                </button>
+                <button onclick="deleteAllOccurrences()" style="flex:1;padding:11px 8px;background:#ef4444;border:none;border-radius:10px;color:#fff;font-size:0.82rem;font-weight:600;font-family:'Open Sans',sans-serif;cursor:pointer;">
+                    全部刪除
+                </button>
+                <button onclick="cancelDeleteChoice()" style="padding:11px 14px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;color:var(--muted);font-size:0.82rem;font-weight:600;font-family:'Open Sans',sans-serif;cursor:pointer;">
+                    取消
+                </button>
+            </div>
+        </div>
+    `;
+    // Store ref for the choice handlers
+    window._pendingDeleteEvent = eventToDelete;
+}
+
+function deleteSingleOccurrence() {
+    const ev = window._pendingDeleteEvent;
+    if (!ev) return;
+    // For a recurring event, remove just this instance by converting it to a
+    // one-off exception: find the group id and remove only the clicked instance.
+    // FullCalendar recurring events share a groupId; we remove the whole series
+    // and re-add without the clicked date.
+    const groupId = ev.groupId;
+    const skipDate = ev.start.toISOString().split('T')[0];
+    closeModal();
+
+    if (groupId) {
+        // Collect series info before removing
+        const seriesEvents = calendar.getEvents().filter(e => e.groupId === groupId);
+        if (seriesEvents.length > 0) {
+            const ref = seriesEvents[0];
+            const daysOfWeek = ref.extendedProps?.daysOfWeek || null;
+            const startTime = ref.extendedProps?.startTime || formatTime(ref.start);
+            const endTime   = ref.extendedProps?.endTime   || formatTime(ref.end);
+            const title = ref.title;
+            const bg = ref.backgroundColor;
+            // Remove whole series
+            seriesEvents.forEach(e => e.remove());
+            // Re-add with exdate stored in extendedProps
+            const existingExdates = ref.extendedProps?.exdates || [];
+            const exdates = [...existingExdates, skipDate];
+            // Re-add recurring event (FullCalendar doesn't support exdate natively,
+            // so we store exdates in extendedProps and filter in eventDidMount)
+            calendar.addEvent({
+                id: generateId(),
+                groupId: groupId,
+                title, backgroundColor: bg, borderColor: 'transparent',
+                daysOfWeek, startTime, endTime,
+                extendedProps: { daysOfWeek, startTime, endTime, exdates }
+            });
+        }
+    } else {
+        ev.remove();
+    }
+    window._pendingDeleteEvent = null;
+    persistEvents();
+    showToast('🗑 已刪除單次');
+}
+
+function deleteAllOccurrences() {
+    const ev = window._pendingDeleteEvent;
+    if (!ev) return;
+    const groupId = ev.groupId;
+    closeModal();
+    if (groupId) {
+        calendar.getEvents().filter(e => e.groupId === groupId).forEach(e => e.remove());
+    } else {
+        ev.remove();
+    }
+    window._pendingDeleteEvent = null;
+    persistEvents();
+    showToast('🗑 全部已刪除');
+}
+
+function cancelDeleteChoice() {
+    window._pendingDeleteEvent = null;
+    closeModal();
+}
+
+function formatTime(date) {
+    const h = String(date.getHours()).padStart(2, '0');
+    const m = String(date.getMinutes()).padStart(2, '0');
+    return `${h}:${m}:00`;
+}
+
+// ════════════════════════════════════════════
+//  1-3-5 TEMPLATE
+// ════════════════════════════════════════════
+function openTemplateModal() {
+    // Default to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('templateDate').value = today;
+    document.getElementById('templateModal').classList.add('open');
+}
+
+function closeTemplateModal() {
+    document.getElementById('templateModal').classList.remove('open');
+}
+
+function setTemplateDate(daysFromNow) {
+    const d = new Date();
+    d.setDate(d.getDate() + daysFromNow);
+    document.getElementById('templateDate').value = d.toISOString().split('T')[0];
+}
+
+function confirmApplyTemplate() {
+    const dateVal = document.getElementById('templateDate').value;
+    if (!dateVal) { showToast('請選擇日期'); return; }
+    closeTemplateModal();
+    apply135Template(dateVal);
+}
+
+function apply135Template(targetDate) {
+    const today = targetDate || new Date().toISOString().split('T')[0];
+    const tpl = [
+        { t: '大任務',    start: '10:00', end: '11:30', c: '#de9089' },
+        { t: '中任務①',  start: '14:00', end: '15:00', c: '#debb89' },
+        { t: '中任務②',  start: '15:30', end: '16:30', c: '#debb89' },
+        { t: '中任務③',  start: '16:30', end: '18:30', c: '#debb89' },
+        { t: '小任務①',  start: '09:30', end: '09:50', c: '#ded889' },
+        { t: '小任務②',  start: '11:30', end: '12:00', c: '#ded889' },
+        { t: '小任務③',  start: '13:30', end: '14:00', c: '#ded889' },
+        { t: '小任務④',  start: '15:00', end: '15:30', c: '#ded889' },
+        { t: '小任務⑤',  start: '18:30', end: '18:45', c: '#ded889' },
+    ];
+
+    tpl.forEach(item => {
+        calendar.addEvent({
+            id: generateId(),
+            title: item.t,
+            start: `${today}T${item.start}:00`,
+            end: `${today}T${item.end}:00`,
+            backgroundColor: item.c,
+            borderColor: 'transparent'
+        });
+    });
+
+    pushUndo();
+    persistEvents();
+    showToast('✨ 1-3-5 範本已套用');
+}
+
+// ════════════════════════════════════════════
+//  TOGGLES & UTILITIES
+// ════════════════════════════════════════════
+function toggleWeekend(checkbox) {
+    calendar.setOption('weekends', !checkbox.checked);
+}
+
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ════════════════════════════════════════════
+//  UNDO STACK (max 2 steps)
+// ════════════════════════════════════════════
+const undoStack = [];
+
+function snapshotEvents() {
+    if (!calendar) return [];
+    return calendar.getEvents().map(e => {
+        const ep = e.extendedProps || {};
+        const obj = {
+            id: e.id || generateId(),
+            groupId: e.groupId || undefined,
+            title: e.title,
+            backgroundColor: e.backgroundColor,
+            borderColor: 'transparent',
+        };
+        if (ep.daysOfWeek) {
+            obj.daysOfWeek = ep.daysOfWeek;
+            obj.startTime = ep.startTime;
+            obj.endTime = ep.endTime;
+            obj.extendedProps = { daysOfWeek: ep.daysOfWeek, startTime: ep.startTime, endTime: ep.endTime, exdates: ep.exdates || [] };
+        } else {
+            obj.start = e.start ? e.start.toISOString() : null;
+            obj.end = e.end ? e.end.toISOString() : null;
+        }
+        return obj;
+    });
+}
+
+function pushUndo() {
+    undoStack.push(snapshotEvents());
+    if (undoStack.length > 2) undoStack.shift();
+}
+
+function applyUndo() {
+    if (!undoStack.length) { showToast('沒有可還原的步驟'); return; }
+    const snapshot = undoStack.pop();
+    calendar.getEvents().forEach(e => e.remove());
+    snapshot.forEach(ev => calendar.addEvent(ev));
+    persistEvents();
+    showToast('↩ 已還原');
+}
+
+// ════════════════════════════════════════════
+//  LASSO MULTI-SELECT
+// ════════════════════════════════════════════
+let lassoOrigin = null;
+let lassoDrawing = false;
+let selectedEventIds = new Set();
+
+function initLasso() {
+    const wrapper = document.querySelector('.cal-wrapper');
+    const box = document.getElementById('lassoBox');
+
+    wrapper.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        const skip = e.target.closest('.fc-event, button, select, input, .modal-overlay, .fc-timegrid-axis, .fc-col-header, .fc-timegrid-slot-label');
+        if (skip) return;
+        clearSelection();
+        lassoDrawing = true;
+        const r = wrapper.getBoundingClientRect();
+        lassoOrigin = { x: e.clientX - r.left, y: e.clientY - r.top };
+        Object.assign(box.style, { left: lassoOrigin.x+'px', top: lassoOrigin.y+'px', width:'0px', height:'0px', display:'block' });
+        e.preventDefault();
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+        if (!lassoDrawing) return;
+        const r = wrapper.getBoundingClientRect();
+        const cx = e.clientX - r.left, cy = e.clientY - r.top;
+        box.style.left   = Math.min(cx, lassoOrigin.x) + 'px';
+        box.style.top    = Math.min(cy, lassoOrigin.y) + 'px';
+        box.style.width  = Math.abs(cx - lassoOrigin.x) + 'px';
+        box.style.height = Math.abs(cy - lassoOrigin.y) + 'px';
+    });
+
+    document.addEventListener('mouseup', (e) => {
+        if (!lassoDrawing) return;
+        lassoDrawing = false;
+
+        // Read bounding rect BEFORE hiding the box
+        const br = box.getBoundingClientRect();
+        box.style.display = 'none';
+
+        if (br.width < 5 && br.height < 5) return;
+
+        selectedEventIds = new Set();
+        document.querySelectorAll('.fc-timegrid-event').forEach(el => {
+            const er = el.getBoundingClientRect();
+            const overlaps = er.right > br.left && er.left < br.right &&
+                             er.bottom > br.top  && er.top  < br.bottom;
+            if (overlaps) {
+                el.classList.add('lasso-selected');
+                const titleText = el.querySelector('.fc-event-title')?.textContent?.trim();
+                if (titleText) {
+                    calendar.getEvents().filter(ev => ev.title === titleText)
+                        .forEach(ev => selectedEventIds.add(ev.id));
+                }
+            }
+        });
+
+        if (selectedEventIds.size > 0) {
+            document.getElementById('lassoCount').textContent = selectedEventIds.size + ' 個已選取';
+            document.getElementById('lassoDeleteBar').classList.add('show');
+        }
+    });
+}
+
+function deleteSelected() {
+    if (!selectedEventIds.size) return;
+    pushUndo();
+    let count = selectedEventIds.size;
+    calendar.getEvents().forEach(ev => { if (selectedEventIds.has(ev.id)) ev.remove(); });
+    persistEvents();
+    clearSelection();
+    showToast('🗑 已刪除 ' + count + ' 個任務');
+}
+
+function clearSelection() {
+    selectedEventIds = new Set();
+    document.querySelectorAll('.fc-event.lasso-selected').forEach(el => el.classList.remove('lasso-selected'));
+    document.getElementById('lassoDeleteBar').classList.remove('show');
+}
+
+// ════════════════════════════════════════════
+//  KEYBOARD SHORTCUTS
+// ════════════════════════════════════════════
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { closeModal(); clearSelection(); }
+    if (e.ctrlKey && e.key === 'z') { e.preventDefault(); applyUndo(); }
+    if (e.key === 'Delete' && selectedEventIds.size > 0) deleteSelected();
+    if (e.key === 'Enter' && document.getElementById('eventModal').classList.contains('open')) {
+        if (document.activeElement.tagName !== 'SELECT') saveEvent();
+    }
+});
+
+// Enter in login fields
+document.addEventListener('DOMContentLoaded', () => {
+    ['loginUsername','loginPassword'].forEach(id => {
+        document.getElementById(id)?.addEventListener('keydown', e => {
+            if (e.key === 'Enter') handleLogin();
+        });
+    });
+
+    ['regUsername','regPassword','regPassword2'].forEach(id => {
+        document.getElementById(id)?.addEventListener('keydown', e => {
+            if (e.key === 'Enter') handleRegister();
+        });
+    });
+
+    // Auto-login
+    const saved = store.get('135_autologin');
+    if (saved) {
+        const users = getUsers();
+        if (users[saved]) {
+            enterApp(saved);
+            return;
+        }
+    }
+
+    // Show login screen
+    document.getElementById('loginScreen').style.display = 'flex';
+    if (!store.persistent) {
+        document.getElementById('storageWarning').style.display = 'block';
+    }
+});
+</script>
+<!-- ══════════════════ TEMPLATE DATE MODAL ══════════════════ -->
+<div class="modal-overlay" id="templateModal">
+    <div class="modal-card">
+        <div class="modal-title">選擇套用日期</div>
+        <div class="field-row">
+            <label class="field-label">指定日期</label>
+            <input type="date" class="date-pick-input" id="templateDate">
+            <div class="date-shortcuts">
+                <button class="date-shortcut" onclick="setTemplateDate(0)">今天</button>
+                <button class="date-shortcut" onclick="setTemplateDate(1)">明天</button>
+                <button class="date-shortcut" onclick="setTemplateDate(2)">後天</button>
+                <button class="date-shortcut" onclick="setTemplateDate(7)">下週同天</button>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="btn-cancel" onclick="closeTemplateModal()">取消</button>
+            <button class="btn-save" onclick="confirmApplyTemplate()">套用範本</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
