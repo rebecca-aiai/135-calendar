@@ -620,6 +620,38 @@
         .lasso-del-btn { background: var(--coral); color: #fff; }
         .lasso-cancel-btn { background: rgba(255,255,255,0.15); color: #fff; }
 
+        /* time fields */
+        .time-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            align-items: end;
+        }
+        .time-input {
+            width: 100%;
+            padding: 11px 10px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: var(--surface);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+        .time-input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(119,201,210,0.15);
+            background: #fff;
+        }
+        .duration-badge {
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 5px;
+        }
+
         /* ── DATE PICKER MODAL ── */
         #templateModal .modal-card { width: 340px; }
         .date-pick-input {
@@ -776,6 +808,24 @@
             <div class="color-swatches" id="colorSwatches"></div>
         </div>
 
+        <div class="field-row">
+            <label class="field-label">時間</label>
+            <div class="time-row">
+                <div>
+                    <label class="field-label" style="margin-bottom:4px;">開始</label>
+                    <input type="time" class="time-input" id="taskStartTime" onchange="onTimeChange()">
+                </div>
+                <div>
+                    <label class="field-label" style="margin-bottom:4px;">結束</label>
+                    <input type="time" class="time-input" id="taskEndTime" onchange="onTimeChange()">
+                </div>
+                <div>
+                    <label class="field-label" style="margin-bottom:4px;">時數</label>
+                    <input type="number" class="time-input" id="taskDuration" min="0.25" max="24" step="0.25" placeholder="hr" onchange="onDurationChange()">
+                </div>
+            </div>
+        </div>
+
         <div class="modal-grid" style="margin-bottom:0">
             <div class="field-row">
                 <label class="field-label">重複設定</label>
@@ -788,10 +838,20 @@
             </div>
         </div>
 
-        <div class="modal-actions">
+        <div class="modal-actions" id="modalActions">
             <button class="btn-delete" id="btnDelete" onclick="deleteCurrentEvent()" style="display:none">🗑 刪除</button>
             <button class="btn-cancel" onclick="closeModal()">取消</button>
             <button class="btn-save" onclick="saveEvent()">儲存</button>
+        </div>
+
+        <!-- Recurring delete confirmation (shown in-place, hides normal actions) -->
+        <div id="recurDeleteConfirm" style="display:none;margin-top:18px;">
+            <p style="font-size:0.84rem;color:var(--muted);margin:0 0 10px;text-align:center;">這是重複事件，請選擇刪除範圍：</p>
+            <div style="display:flex;gap:8px;">
+                <button onclick="deleteSingleOccurrence()" class="btn-cancel" style="flex:1;font-size:0.82rem;">僅此一次</button>
+                <button onclick="deleteAllOccurrences()" class="btn-save" style="flex:1;font-size:0.82rem;background:var(--coral);">全部刪除</button>
+                <button onclick="cancelDeleteChoice()" class="btn-cancel" style="font-size:0.82rem;padding:12px 14px;">返回</button>
+            </div>
         </div>
     </div>
 </div>
@@ -1009,6 +1069,11 @@ function initCalendar() {
         events: savedEvents.map(e => ({ ...e })),
 
         select: function(info) {
+            if (lassoDidSelect) {
+                lassoDidSelect = false;
+                calendar.unselect();
+                return;
+            }
             openModal(null, info);
         },
 
@@ -1132,6 +1197,42 @@ function buildColorLegend() {
     });
 }
 
+function toTimeInputVal(date) {
+    // Returns "HH:MM" for <input type="time">
+    const h = String(date.getHours()).padStart(2, '0');
+    const m = String(date.getMinutes()).padStart(2, '0');
+    return h + ':' + m;
+}
+
+function calcDuration(start, end) {
+    const diff = (end - start) / 3600000; // ms → hours
+    return Math.round(diff * 4) / 4; // round to nearest 0.25
+}
+
+function onTimeChange() {
+    const s = document.getElementById('taskStartTime').value;
+    const e = document.getElementById('taskEndTime').value;
+    if (!s || !e) return;
+    const [sh, sm] = s.split(':').map(Number);
+    const [eh, em] = e.split(':').map(Number);
+    let mins = (eh * 60 + em) - (sh * 60 + sm);
+    if (mins < 0) mins += 24 * 60; // overnight
+    const hrs = Math.round((mins / 60) * 4) / 4;
+    document.getElementById('taskDuration').value = hrs > 0 ? hrs : '';
+}
+
+function onDurationChange() {
+    const s = document.getElementById('taskStartTime').value;
+    const dur = parseFloat(document.getElementById('taskDuration').value);
+    if (!s || isNaN(dur) || dur <= 0) return;
+    const [sh, sm] = s.split(':').map(Number);
+    const totalMins = sh * 60 + sm + Math.round(dur * 60);
+    const eh = Math.floor(totalMins / 60) % 24;
+    const em = totalMins % 60;
+    document.getElementById('taskEndTime').value =
+        String(eh).padStart(2, '0') + ':' + String(em).padStart(2, '0');
+}
+
 function openModal(event = null, selectInfo = null) {
     currentEditInfo = { event, selectInfo };
 
@@ -1140,12 +1241,26 @@ function openModal(event = null, selectInfo = null) {
         document.getElementById('taskTitle').value = event.title;
         selectedColor = event.backgroundColor || COLOR_OPTIONS[0].hex;
         document.getElementById('btnDelete').style.display = 'block';
+        document.getElementById('taskRecur').value = '';
+        // Populate time fields from event
+        if (event.start) {
+            document.getElementById('taskStartTime').value = toTimeInputVal(event.start);
+            if (event.end) {
+                document.getElementById('taskEndTime').value = toTimeInputVal(event.end);
+                document.getElementById('taskDuration').value = calcDuration(event.start, event.end);
+            }
+        }
     } else {
         document.getElementById('modalTitleText').textContent = '新增任務';
         document.getElementById('taskTitle').value = '';
         selectedColor = COLOR_OPTIONS[0].hex;
         document.getElementById('btnDelete').style.display = 'none';
         document.getElementById('taskRecur').value = '';
+        // Populate from drag selection
+        const s = selectInfo?.start, e = selectInfo?.end;
+        document.getElementById('taskStartTime').value = s ? toTimeInputVal(s) : '';
+        document.getElementById('taskEndTime').value   = e ? toTimeInputVal(e) : '';
+        document.getElementById('taskDuration').value  = (s && e) ? calcDuration(s, e) : '';
     }
 
     buildColorSwatches();
@@ -1156,6 +1271,10 @@ function openModal(event = null, selectInfo = null) {
 
 function closeModal() {
     document.getElementById('eventModal').classList.remove('open');
+    // Always restore modal to normal state
+    document.getElementById('modalActions').style.display = 'flex';
+    document.getElementById('recurDeleteConfirm').style.display = 'none';
+    window._pendingDeleteEvent = null;
     currentEditInfo = null;
 }
 
@@ -1167,6 +1286,21 @@ function saveEvent() {
         currentEditInfo.event.setProp('title', title);
         currentEditInfo.event.setProp('backgroundColor', selectedColor);
         currentEditInfo.event.setProp('borderColor', 'transparent');
+        // Apply edited times if event has a concrete start (not recurring-only)
+        const ev = currentEditInfo.event;
+        if (ev.start) {
+            const startVal = document.getElementById('taskStartTime').value;
+            const endVal   = document.getElementById('taskEndTime').value;
+            if (startVal && endVal) {
+                const baseDate = ev.start.toISOString().split('T')[0];
+                const newStart = new Date(baseDate + 'T' + startVal);
+                let   newEnd   = new Date(baseDate + 'T' + endVal);
+                // Handle overnight (end < start → next day)
+                if (newEnd <= newStart) newEnd.setDate(newEnd.getDate() + 1);
+                ev.setStart(newStart);
+                ev.setEnd(newEnd);
+            }
+        }
     } else {
         const recurGroupId = recur ? generateId() : null;
         const eventData = {
@@ -1231,26 +1365,10 @@ function deleteCurrentEvent() {
 }
 
 function showDeleteChoice(eventToDelete) {
-    // Replace modal actions with choice buttons
-    const actionsEl = document.querySelector('.modal-actions');
-    actionsEl.innerHTML = `
-        <div style="width:100%">
-            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 10px;text-align:center;">這是重複事件，請選擇刪除範圍：</p>
-            <div style="display:flex;gap:8px;">
-                <button onclick="deleteSingleOccurrence()" style="flex:1;padding:11px 8px;background:#FEF2F2;border:1.5px solid #FECACA;border-radius:10px;color:#ef4444;font-size:0.82rem;font-weight:600;font-family:'Open Sans',sans-serif;cursor:pointer;">
-                    僅此一次
-                </button>
-                <button onclick="deleteAllOccurrences()" style="flex:1;padding:11px 8px;background:#ef4444;border:none;border-radius:10px;color:#fff;font-size:0.82rem;font-weight:600;font-family:'Open Sans',sans-serif;cursor:pointer;">
-                    全部刪除
-                </button>
-                <button onclick="cancelDeleteChoice()" style="padding:11px 14px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;color:var(--muted);font-size:0.82rem;font-weight:600;font-family:'Open Sans',sans-serif;cursor:pointer;">
-                    取消
-                </button>
-            </div>
-        </div>
-    `;
-    // Store ref for the choice handlers
     window._pendingDeleteEvent = eventToDelete;
+    // Hide normal actions, show confirmation panel — never mutate the DOM
+    document.getElementById('modalActions').style.display = 'none';
+    document.getElementById('recurDeleteConfirm').style.display = 'block';
 }
 
 function deleteSingleOccurrence() {
@@ -1314,7 +1432,9 @@ function deleteAllOccurrences() {
 
 function cancelDeleteChoice() {
     window._pendingDeleteEvent = null;
-    closeModal();
+    // Restore normal modal actions
+    document.getElementById('modalActions').style.display = 'flex';
+    document.getElementById('recurDeleteConfirm').style.display = 'none';
 }
 
 function formatTime(date) {
@@ -1442,6 +1562,7 @@ function applyUndo() {
 // ════════════════════════════════════════════
 let lassoOrigin = null;
 let lassoDrawing = false;
+let lassoDidSelect = false;
 let selectedEventIds = new Set();
 
 function initLasso() {
@@ -1498,6 +1619,8 @@ function initLasso() {
         if (selectedEventIds.size > 0) {
             document.getElementById('lassoCount').textContent = selectedEventIds.size + ' 個已選取';
             document.getElementById('lassoDeleteBar').classList.add('show');
+            lassoDidSelect = true;
+            setTimeout(() => { calendar.unselect(); }, 0);
         }
     });
 }
